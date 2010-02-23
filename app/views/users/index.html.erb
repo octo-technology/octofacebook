@@ -28,7 +28,10 @@
 					    <td><%=h user.firstname %></td>
 					    <td><%=h user.lastname %></td>
 					    <td><%=h user.twitter_identifier %></td>
-					    <td><%= link_to 'Consulter', public_page_path(user.username) %> | <%= link_to 'Editer', edit_page_path(user.username) %></td>
+					    <td><%= link_to 'Consulter', public_page_path(user.username) %>
+					    <% if current_user %>
+					     | <%= link_to 'Editer', edit_page_path(user.username) %></td>
+					    <% end %>
 					  </tr>
 					<% end %>
 	       </table>

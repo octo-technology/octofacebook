@@ -5,14 +5,14 @@ Feature: Create my public page
 
 	Scenario: Create my page
 		Given I am on octofacebook
-		And openid server is available and provides my fullname "Christian Blavier"
+		And openid server is available and provides my fullname "Francois Hisquin"
 		When I follow "Crée ta page octofacebook"
-		And I fill in "OpenID" with "https://openid.octo.com/users/cbl"
+		And I fill in "OpenID" with "https://openid.octo.com/users/fhi"
 		And I press "Valider"
 		And I press "Valider"
-		Then I should be on cblavier's public page 
-		And I should see "Bienvenue sur la page publique de Christian"
-		And I should see "Blavier"
+		Then I should be on fhisquin's public page 
+		And I should see "Bienvenue sur la page publique de Francois"
+		And I should see "Hisquin"
 		
 	Scenario: Create my page with an existing account
 		Given my name is Christian Blavier  
@@ -23,4 +23,12 @@ Feature: Create my public page
 		And I press "Valider"
 		Then I should see "errors prohibited this user from being saved"
   
-
+  Scenario: Listing available pages when not logged in
+    Given I am on octofacebook
+    Then I should not see "Editer"
+    
+  Scenario: Listing available pages when logged in
+    Given I am logged in
+    And I am on octofacebook
+    Then I should see "Editer"
+    
