@@ -1,0 +1,56 @@
+<% if flash[:notice] %>
+    <div class="message notice"><%= flash[:notice] %></div>
+ <% end %>
+<% if flash[:warning] %>
+    <div class="message warning"><%= flash[:warning] %></div>
+ <% end %>
+<div id="main">
+	<div class="block">
+		<div class="secondary-navigation">
+			<ul>
+				<li class="active-first">
+					<a href="#">Bienvenue sur la page publique de <%= @user.firstname %></a>
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="content">
+			<div class="inner">
+				<p>
+				  <b>OpenID: </b>
+				  <span id="openid"><%=h @user.openid_identifier %></span>
+				</p>
+
+				<p>
+				  <b>Prénom: </b>
+				  <span id="firstname"><%=h @user.firstname %></span>
+				</p>
+
+				<p>
+				  <b>Nom: </b>
+				  <span id="lastname"><%=h @user.lastname %></span>
+				</p>
+
+				<p>
+				  <b>Compte Twitter: </b>
+				  <span id="twitter_identifier"><%=h @user.twitter_identifier %></span>
+				</p>
+
+			<%= link_to 'Editer', edit_page_path %> | <%= link_to 'Accueil', root_path %>
+			</div>
+		</div>
+	</div>	
+</div>
+	
+<div id="sidebar">
+    <div class="block">
+      <h3><%= @user.firstname %> dit sur Twitter </h3>
+      <div class="content" id="twitts">
+        <% for twitt in @twitts %>
+				   <p><%= twitt.text %></p>
+				<% end %>
+				<%= link_to 'Suivez moi sur Twitter', twitter_identifier_url(@user.twitter_identifier), :target => "_blank" %>
+      </div>
+			
+	</div>
+</div>

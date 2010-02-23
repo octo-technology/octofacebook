@@ -1,0 +1,39 @@
+<div id="main">
+	<div class="block">
+		<div class="secondary-navigation">
+			<ul>
+				<li class="active-first">
+					<a href="#">Crée dès maintenant ta page OctoFaceBook</a>
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="content">
+			<div class="inner">
+					<% form_for @user, :url => {:action => "create"}, :html => { :class => "form" } do |f| %>
+						<%= f.error_messages :class => "message error" %>
+						
+						<div class="group">
+							<%= f.label :openid_identifier, "OpenID" %>
+							<%= f.text_field :openid_identifier, :class => "text_field" %>
+							<span class="description">Ton open id. De la forme https://openid.octo.com/users/cbl<span>
+						</div>
+						
+						<div class="group">
+							<%= f.label :twitter_identifier, "Compte Twitter" %>
+							<%= f.text_field :twitter_identifier, :class => "text_field" %>
+							<span class="description">L'identifiant que tu utilises sur Twitter</span>
+						</div>
+						
+						<div class="group navform">
+							<%= f.submit "Valider", :class => "button" %>
+							ou
+							<%= link_to "Annuler", root_path %>
+						</div>
+
+				  <% end %>
+			</div>
+		</div>
+	</div>	
+</div>
+

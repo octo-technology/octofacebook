@@ -1,0 +1,41 @@
+<div id="main">
+	<% if flash[:notice] %>
+      <div class="message notice"><%= flash[:notice] %></div>
+   <% end %>
+	<% if flash[:warning] %>
+      <div class="message warning"><%= flash[:warning] %></div>
+   <% end %>
+	<div class="content">
+	   <h2 class="title">Liste des pages</h2>
+	   <div class="inner">
+	     <form action="#" class="form">
+	       <table class="table">
+	         <tr>
+	           <th class="first">&nbsp;</th>
+	           <th>OpenID</th>
+						 <th>ID</th>
+	           <th>Prénom</th>
+	           <th>Nom</th>
+	           <th>Compte Twitter</th>
+	           <th class="last">&nbsp;</th>
+	         </tr>
+
+					<% @users.each do |user| %>
+					  <tr class="<%= cycle('odd', 'even') %>">
+							<td>&nbsp;</td>
+					    <td><%=h user.openid_identifier %></td>
+					    <td><%=h user.username %></td>
+					    <td><%=h user.firstname %></td>
+					    <td><%=h user.lastname %></td>
+					    <td><%=h user.twitter_identifier %></td>
+					    <td><%= link_to 'Consulter', public_page_path(user.username) %> | <%= link_to 'Editer', edit_page_path(user.username) %></td>
+					  </tr>
+					<% end %>
+	       </table>
+	         <div class="clear"></div>
+	       </div>
+	     </form>
+	   </div>
+	</div>
+</div>
+

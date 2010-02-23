@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+crongier:
+  openid_identifier: https://openid.octo.com/users/clr
+  username: crongier
+  lastname: Rongier
+  firstname: Clément
+  twitter_identifier: crongier
+  
+hlourdin:
+  openid_identifier: https://openid.octo.com/users/hlo
+  username: hlourdin
+  lastname: Lourdin
+  firstname: Hervé
+  twitter_identifier: hlourdin
+
+cblavier:
+  openid_identifier: https://openid.octo.com/users/cbl
+  username: cblavier
+  lastname: Blavier
+  firstname: Christian
+  twitter_identifier: cblavier
