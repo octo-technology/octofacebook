@@ -21,7 +21,7 @@ Feature: Create my public page
 		When I follow "Crée ta page octofacebook"
 		And I fill in "OpenID" with "https://openid.octo.com/users/cbl"
 		And I press "Valider"
-		Then I should see "error prohibited this user from being saved"
+		Then I should see "errors prohibited this user from being saved"
   
   Scenario: Listing available pages when not logged in
     Given I am on octofacebook
