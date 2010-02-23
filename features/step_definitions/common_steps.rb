@@ -25,5 +25,5 @@ Given /^openid server is available and provides my fullname "([^\"]*)"$/ do |$fu
 end
 
 Given /^I am logged in$/ do
-  UsersController.any_instance.stubs(:current_user).returns(User.new :firstname => 'John', :lastname => 'McLaughlin')
+  UsersController.any_instance.stubs(:current_user).returns(User.new(:firstname => 'John', :lastname => 'McLaughlin'))
 end

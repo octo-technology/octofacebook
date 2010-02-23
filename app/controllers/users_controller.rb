@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     begin
       @user = User.find_by_username!(params[:username])
-      if @user.twitter_identifier
+      unless @user.twitter_identifier.blank?
         @twitts = TwitterProxy.new.get_last_twitts_for_user @user.twitter_identifier
       else  
         @twitts = []
