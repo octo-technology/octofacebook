@@ -27,9 +27,10 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   test "should show user" do
-    get :show, :username => users(:cblavier).username
+    u = Factory(:user, :twitter_identifier => nil)
+    get :show, :username => u.username
     assert_response :success
-    assert_select "span[id='lastname']", users(:cblavier).lastname
+    assert_select "span[id='lastname']", u.lastname
   end
 
   test "should show user with twitts" do
