@@ -1,7 +1,6 @@
 require 'TwitterProxy'
 
 class UsersController < ApplicationController
-  layout "main"
 
   # GET /
   def index

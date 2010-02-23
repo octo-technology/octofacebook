@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr_FR">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <title>OCTO Facebook <%= @title.blank? ? "" : "- #{@title}" %></title>
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Cabinet de Conseil en Systèmes d'Information" />
+  <meta name="keywords" content="" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.octo.com/favicon.ico" />
+  <%= stylesheet_link_tag "octo", "style" %>
+  
+</head>
+<body class="home">
+  <div id="theme_page_container_bg">
+    <div id="theme_page_container">
+
+      <div id="theme_page_container_part_left">&nbsp;</div>
+      <div id="theme_page_container_part_right">
+        <div id="theme_page_container_center">
+          <div id="theme_header">
+            <a id="theme_header_go_home" href="http://www.octo.com/./" title="Accueil">
+              <span style="display:none;">Accueil</span>
+              <span id="goTopAnchor"></span>
+            </a>
+            <div id="theme_header_contact">
+              <p>
+                <% if @user %>
+                <a id="nous_contacter" href="mailto:<%= @user.username %>@octo.com" title="Le contacter">me contacter</a>
+                <% end %>
+              </p>
+            </div>
+          </div>
+          <div id="theme_content">
+            <% if flash[:notice] %>
+            <span class="message notice"><%= flash[:notice] %></span>
+            <% end %>
+            <% if flash[:warning] %>
+            <span class="message warning"><%= flash[:warning] %></span>
+            <% end %>
+                <%= yield %>
+          </div>
+          <div id="theme_footer">&nbsp;</div>
+        </div>
+        <div id="theme_page_container_right">
+          <div class="pn-block pn-blockposition-right_panel_home pn-bkey-list pn-bid-55">
+            <div class="theme_page_container_right_block">
+              <h3>Sidebar</h3>
+            </div>
+            
+          </div>
+          
+        </div>
+        <div id="theme_footer_links">
+          <p>
+            <a href="http://www.octo.com/Legal/" title='Mentions légales' >Mentions légales</a> | 
+            Autres sites : 
+            <a href="http://www.universite-du-si.com" title="USI" target="_blank">USI</a> -
+            <a href="http://blog.octo.com" title="Blog" target="_blank">Blog</a>
+          </p>
+          <p> Octo Technology &copy; <%= Date.today.year %></p>
+          <p>
+            <% if !current_user %>
+              <%= link_to "Crée ta page OctoFaceBook", new_user_path %> |
+              <%= link_to "Connexion", login_path %>
+    				<% else %>
+    				  <%= link_to "Éditer ma page /#{current_user.username}", edit_page_path(current_user.username) %> |
+    				  <%= link_to "déconnexion", logout_path, :method => :delete %>
+    				<% end %>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
