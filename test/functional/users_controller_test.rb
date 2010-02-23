@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'mocha'
 
 class UsersControllerTest < ActionController::TestCase
   test "should get index" do
@@ -35,11 +34,11 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should show user with twitts" do
     #On crée un mock de TwitterProxy qui renvoie ce twitt
-    twitt = Mash.new(:text =>"Hello this is my twitt")
+    twitt = OpenStruct.new :text => "Hello this is my twitt"
     TwitterProxy.any_instance.
       expects(:get_last_twitts_for_user).
       with(users(:cblavier).twitter_identifier).
-      returns([twitt])     
+      returns([twitt])
       
     #On vérifie que le twitt est bien présent dans le tableau de twitt passé à la page
     get :show, :username => users(:cblavier).username

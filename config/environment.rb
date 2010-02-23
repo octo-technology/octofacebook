@@ -5,10 +5,12 @@ RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+                      
+require 'ostruct'
 
 Rails::Initializer.run do |config|
    
-  config.gem 'twitter', :version => '0.6.15', :lib => "twitter"
+  config.gem 'twitter'
   config.gem "ruby-openid", :lib => "openid"
   config.gem "authlogic"
   config.gem "authlogic-oid", :lib => "authlogic_openid"
