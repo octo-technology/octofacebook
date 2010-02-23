@@ -12,9 +12,6 @@ Rails::Initializer.run do |config|
   config.gem "ruby-openid", :lib => "openid"
   config.gem "authlogic"
   config.gem "authlogic-oid", :lib => "authlogic_openid"
-   config.gem "authlogic", :lib => "authlogic"
-   config.gem "authlogic-oid", :lib => "authlogic_openid"
-   config.gem "ruby-openid", :lib => "openid"
     
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
