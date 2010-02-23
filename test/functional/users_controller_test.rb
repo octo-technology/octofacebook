@@ -34,24 +34,28 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should show user with twitts" do
+    u = Factory(:user, :username => "bob")
+    
     #On crée un mock de TwitterProxy qui renvoie ce twitt
     twitt = OpenStruct.new :text => "Hello this is my twitt"
     TwitterProxy.any_instance.expects(:get_last_twitts_for_user).returns([twitt])
 
     #On vérifie que le twitt est bien présent dans le tableau de twitt passé à la page
-    get :show, :username => users(:cblavier).username
+    get :show, :username => "bob"
     assert_response :success
     assert assigns(:twitts).include?(twitt)
   end
 
   test "should get edit page" do
-    get :edit, :username => users(:cblavier).username
+    u = Factory(:user, :username => "bob")
+    get :edit, :username => "bob"
     assert_response :success
   end
 
   test "should update user with prenom Christophe" do
-    put :update, :username => users(:cblavier).username, :user => { :firstname => "Christophe" }
-    assert_redirected_to public_page_path(users(:cblavier).username)
+    u = Factory(:user, :username => "cblavier", :firstname => "Christian")
+    put :update, :username => "cblavier", :user => { :firstname => "Christophe" }
+    assert_redirected_to public_page_path("cblavier")
     assert assigns(:user).firstname == "Christophe"
   end
 
