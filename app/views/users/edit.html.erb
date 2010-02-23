@@ -23,12 +23,19 @@
       <%= f.label :lastname, "Nom" %>
       <%= f.text_field :lastname, :class => "text_field" %>
     </div>
+    
+    <div class="group">
+      <%= f.label :bio, "Bio" %>
+      <%= f.text_area :bio, :class => "text_field", :rows => 10 %>
+      <span class="description">Quelques lignes sur toi</span>
+    </div>
 
     <div class="group">
       <%= f.label :twitter_identifier, "Compte Twitter" %>
       <%= f.text_field :twitter_identifier, :class => "text_field" %>
       <span class="description">L'identifiant que tu utilises sur Twitter</span>
     </div>
+    
 
     <div class="group navform">
       <%= f.submit "Valider", :class => "button" %>

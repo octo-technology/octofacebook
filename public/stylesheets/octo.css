@@ -19,16 +19,18 @@ background-color:inherit;
 
 a:hover{background-color:inherit; text-decoration:underline;}
 
-h3 {
+#theme_content h3 {
 font:1.4em Arial, Helvetica, sans-serif;
 font-weight:normal;
 color:#16458a;
 padding-bottom:5px;
+padding-left:10px;
+background: transparent url(/images/puce-verte-fond-bleu-fonce.png) no-repeat 0px 5px
 }
 
 p{padding:0 0 1em 0; text-align: justify;}
 
-#theme_page_container_bg{background:url(../images/bg-top-right.png) top right no-repeat;}
+#theme_page_container_bg{background:url(/images/bg-top-right.png) top right no-repeat;}
 
 #theme_page_container{
 width:952px;
@@ -38,7 +40,7 @@ height:400px;
 }
 
 #theme_page_container_part_left{
-background:url(../images/theme_page_container_left.png) left 80px no-repeat;
+background:url(/images/theme_page_container_left.png) left 80px no-repeat;
 float:left;
 width:32px;
 height:559px;
@@ -54,7 +56,7 @@ background:#fff;
 z-index:9;
 }
 #theme_page_container_right{
-background:url(../images/theme_page_container_right.png) left 80px no-repeat;
+background:url(/images/theme_page_container_right.png) left 80px no-repeat;
 float:left;
 padding-top:79px;
 width:181px;
@@ -69,7 +71,7 @@ z-index:8;
 height:85px;
 width:100%;
 color:#ffffff;
-background:url(../images/header-footer.png) no-repeat left top;
+background:url(/images/header-footer.png) no-repeat left top;
 }
 
 #theme_header_go_home {
@@ -91,7 +93,7 @@ font-weight:normal;
 }
 #theme_header_contact a:hover{text-decoration:underline;}
 #theme_header_contact p {text-align:right;}
-#theme_header_contact p a#nous_contacter {background:url(../images/icone-nous-contacter.png) 0 1px no-repeat; padding-left:24px;}
+#theme_header_contact p a#nous_contacter {background:url(/images/icone-nous-contacter.png) 0 1px no-repeat; padding-left:24px;}
 
 /**************** Content styles ****************/
 #theme_content{
@@ -119,7 +121,7 @@ text-align:right;
 
 #theme_footer{
 text-align:center;
-background:url(../images/header-footer.png) left bottom no-repeat;
+background:url(/images/header-footer.png) left bottom no-repeat;
 height:22px;
 clear:both;
 width:100%;

@@ -16,15 +16,24 @@
   margin-bottom:10px;
 }
 
-.form input.text_field {
+.form .text_field {
   display:block;
   border: 1px solid lightGray;
   font-size:1.6em;
 }
 
-
 .message.notice {
   background-color: darkGreen;
   color:white;
   padding:4px;
+}
+
+blockquote {
+  background-color:#F7F7F7;
+  border:1px dashed #DADADA;
+  color:black;
+  font-size:12px;
+  margin:15px 0;
+  padding:15px 40px;
+  text-align:justify;
 }

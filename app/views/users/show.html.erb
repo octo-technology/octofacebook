@@ -1,6 +1,11 @@
 <h1><%=h @user.firstname %> <%= h @user.lastname %></h1>
-
-<h3><%= link_to "Dernier Tweets", twitter_identifier_url(@user.twitter_identifier), :target => "_blank" %></h3>
+<% unless @user.bio.blank? %>
+<h3>ma bio</h3>
+<blockquote>
+  <%= h @user.bio %>
+</blockquote>
+<% end %>
+<h3><%= link_to "mes derniers Tweets", twitter_identifier_url(@user.twitter_identifier), :target => "_blank" %></h3>
 <div class="content" id="twitts">
   <% for twitt in @twitts %>
   <p><%= twitt.text %></p>
