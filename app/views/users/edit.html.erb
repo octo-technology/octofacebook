@@ -36,13 +36,16 @@
       <span class="description">L'identifiant que tu utilises sur Twitter</span>
     </div>
     
-
     <div class="group navform">
       <%= f.submit "Valider", :class => "button" %>
       ou
       <%= link_to "Annuler", public_page_path %>
       ou
       <%= link_to "Détruire le compte", destroy_page_path, :method => "delete" %>
+    </div>
+    
+    <div class="group description">
+      PS: L'affichage de la photo est pour le moment automatiquement récupérée sur gravatar.com avec l'adresse <%= @user.username + "@octo.com"%>
     </div>
 
     <% end %>
