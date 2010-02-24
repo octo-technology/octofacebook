@@ -3,6 +3,10 @@ ENV["RAILS_ENV"] ||= "test"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/rails/world'
  
+require 'database_cleaner'
+require 'database_cleaner/cucumber'
+DatabaseCleaner.strategy = :truncation
+ 
 # Whether or not to run each scenario within a database transaction.
 #
 # If you leave this to true, you can turn off traqnsactions on a

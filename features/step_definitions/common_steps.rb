@@ -27,3 +27,7 @@ end
 Given /^I am logged in$/ do
   UsersController.any_instance.stubs(:current_user).returns(User.new(:firstname => 'John', :lastname => 'McLaughlin'))
 end
+
+Given /^a user exists$/ do
+  Factory :user
+end
