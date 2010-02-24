@@ -6,7 +6,7 @@ Feature: Create my public page
 	Scenario: Create my page
 		Given I am on octofacebook
 		And openid server is available and provides my fullname "Francois Hisquin"
-		When I follow "Crée ta page octofacebook"
+		When I follow "Crée ta page OctoFaceBook"
 		And I fill in "OpenID" with "https://openid.octo.com/users/fhi"
 		And I press "Valider"
 		And I press "Valider"
@@ -17,7 +17,7 @@ Feature: Create my public page
 		Given my name is Christian Blavier  
 		And I am on octofacebook
 		And my public page, cblavier, already exist
-		When I follow "Crée ta page octofacebook"
+		When I follow "Crée ta page OctoFaceBook"
 		And I fill in "OpenID" with "https://openid.octo.com/users/cbl"
 		And I press "Valider"
 		Then I should see "error prohibited this user from being saved"
