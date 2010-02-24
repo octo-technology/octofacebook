@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20100223194531) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "blog_feed_url"
+    t.text     "bio"
   end
 
   add_index "users", ["openid_identifier"], :name => "index_users_on_openid_identifier", :unique => true

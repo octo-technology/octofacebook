@@ -1,25 +1,13 @@
-<div id="box">
-	<div class="block" id="block-login">
-	  <h2>Login Box</h2>
-	  <div class="content login">
-			<% form_for @user_session, :html => { :class => "form login" } do |f| %>
-				<%= f.error_messages :class => "message error" %>
-	      <div class="group">
-	        <div class="left">
-	          <label class="label right"><%= f.label :openid_identifier, "OpenID" %></label>
-	        </div>
-	        <div class="right">
-	         	<%= f.text_field :openid_identifier, :class => "text_field" %>
-	        </div>
-	        <div class="clear"></div>
-	      </div>
-	      <div class="group navform">
-	        <div class="right">
-	          <%= f.submit "Login", :class => "button" %>
-	        </div>
-	        <div class="clear"></div>
-	      </div>
-	    <% end %>
-	  </div>
-	</div>
-</div>
+<h1>Authentification</h1>
+
+<% form_for @user_session, :html => { :class => "form login" } do |f| %>
+  <%= f.error_messages :class => "message error" %>
+  <div class="group">
+    <label><%= f.label :openid_identifier, "OpenID" %></label>
+    <%= f.text_field :openid_identifier, :class => "text_field" %>
+    <span class="description">seul l'OpenID Octo est autorisé (ex: https://openid.octo.com/users/cbl)</span>
+  </div>
+  <div>
+    <%= f.submit "Login", :class => "button" %>
+  </div>
+<% end %>

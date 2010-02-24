@@ -11,9 +11,8 @@ Feature: Create my public page
 		And I press "Valider"
 		And I press "Valider"
 		Then I should be on fhisquin's public page 
-		And I should see "Bienvenue sur la page publique de Francois"
-		And I should see "Hisquin"
-
+		And I should see "Francois Hisquin"
+		
 	Scenario: Create my page with an existing account
 		Given my name is Christian Blavier  
 		And I am on octofacebook

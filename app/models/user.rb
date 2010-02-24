@@ -3,8 +3,12 @@ class User < ActiveRecord::Base
     c.session_class = UserSession
     c.openid_required_fields = [:fullname]
   end
-  
+
   validates_url_format_of :blog_feed_url, :allow_nil => true, :allow_blank => true
+
+  def fullname
+    firstname + " " + lastname
+  end
 
   private
 
@@ -18,7 +22,7 @@ class User < ActiveRecord::Base
     self.firstname = names[0..names.size - 2].join(" ") if names[0]
     self.lastname = names[names.size - 1] if names.size > 1
     generate_username
-  end 
+  end
   
   #Génère le username à partir des nom et prenom
   def generate_username
