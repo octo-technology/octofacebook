@@ -37,6 +37,9 @@
             <% if flash[:warning] %>
             <span class="message warning"><%= flash[:warning] %></span>
             <% end %>
+			<% if flash[:error] %>
+            <span class="message error"><%= flash[:error] %></span>
+            <% end %>
                 <%= yield %>
           </div>
           <div id="theme_footer">&nbsp;</div>
@@ -63,7 +66,7 @@
               <%= link_to "Cree ta page OctoFaceBook", new_user_path %> |
               <%= link_to "Connexion", login_path %>
 			<% else %>
-		  	  <%= link_to "Éditer ma page /#{current_user.username}", edit_page_path(current_user.username) %> |
+		  	  <%= link_to "Editer ma page /#{current_user.username}", edit_page_path(current_user.username) %> |
 			  <%= link_to "déconnexion", logout_path, :method => :delete %>
 			<% end %>
           </p>

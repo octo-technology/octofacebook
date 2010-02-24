@@ -18,6 +18,9 @@ module NavigationHelpers
        
     when /^(.*)'s public page$/i
       public_page_path $1
+      
+    when /^(.*)'s edit page$/i
+      edit_page_path $1
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +

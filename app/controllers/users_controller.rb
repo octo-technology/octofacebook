@@ -55,28 +55,43 @@ class UsersController < ApplicationController
   
   # GET /:username/edit
   def edit
-    @user = User.find_by_username!(params[:username])
+    if current_user && current_user.username == params[:username]
+      @user = User.find_by_username!(params[:username])
+    else
+       flash[:error] = "Tu n'as pas les droits canaillou !"
+       redirect_to root_path
+    end
   end
 
   # PUT /:username/update
   def update
-    @user = User.find_by_username!(params[:username])
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'Page mise à jour avec succès'
-      redirect_to :action => "show"
+    if current_user && current_user.username == params[:username]
+      @user = User.find_by_username!(params[:username])
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'Page mise à jour avec succès'
+        redirect_to :action => "show"
+      else
+        render :action => "edit"
+      end
     else
-      render :action => "edit"
+       flash[:error] = "Tu n'as pas les droits canaillou !"
+       redirect_to root_path
     end
   end
   
   
   def destroy
+    if current_user && current_user.username == params[:username]
       user_session = UserSession.find
       @user = User.find_by_username(params[:username])
       @user.destroy
       user_session.destroy
       flash[:notice] = "Compte désactivé avec succès."
       redirect_to root_url
+    else
+      flash[:error] = "Tu n'as pas les droits canaillou !"
+      redirect_to root_path
+    end
   end
 
 end

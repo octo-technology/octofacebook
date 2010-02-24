@@ -1,20 +1,3 @@
-Given /^my name is ([a-zA-Z]+) ([a-zA-Z]+)$/ do |firstname, lastname|
-  #On garde les nom et prénom pour les utiliser plus tard 
-  @firstname = firstname
-  @lastname = lastname
-end
-
-Given /^my public page, (.+), already exist$/ do |username|
-  #On garde le username de côté pour l'utiliser dans paths.rb
-  @username = username
-  #On crée un compte avec le username, le nom et le prenom
-  User.create(
-    :username => username,
-    :firstname => @firstname,
-    :lastname => @lastname,
-    :openid_identifier => "https://openid.octo.com/users/cbl")
-end
-
 Given /^openid server is available and provides my fullname "([^\"]*)"$/ do |$fullname|
   ActionController::Base.class_eval do
     private
@@ -24,10 +7,12 @@ Given /^openid server is available and provides my fullname "([^\"]*)"$/ do |$fu
   end
 end
 
-Given /^I am logged in$/ do
-  UsersController.any_instance.stubs(:current_user).returns(User.new(:firstname => 'John', :lastname => 'McLaughlin'))
-end
-
 Given /^a user exists$/ do
   Factory :user
+end
+
+Given /^a user exists and I am logged in as this user$/ do 
+  u = Factory :user
+  UsersController.any_instance.stubs(:current_user).returns(u)
+  @username = u.username
 end

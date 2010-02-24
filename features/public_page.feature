@@ -12,23 +12,29 @@ Feature: Create my public page
 		And I press "Valider"
 		Then I should be on fhisquin's public page 
 		And I should see "Francois Hisquin"
-		
+
 	Scenario: Create my page with an existing account
-		Given my name is Christian Blavier  
+		Given a user exists
 		And I am on octofacebook
-		And my public page, cblavier, already exist
 		When I follow "Cree ta page OctoFaceBook"
-		And I fill in "OpenID" with "https://openid.octo.com/users/cbl"
+		And I fill in "OpenID" with "https://openid.octo.com/users/fhi"
 		And I press "Valider"
+		Then I should see "Une erreur"
   
-	Scenario: Listing available pages when not logged in
-	  Given a user exists
-	  And I am on octofacebook
-	  Then I should not see "Editer"
+	Scenario: Editing my page when not logged in
+		Given a user exists
+		And I am on octofacebook
+		Then I should not see "Editer ma page"
+	
+	Scenario: Editing my page when not logged in
+		Given a user exists
+		And I am on octofacebook
+		And I go to fhisquin's edit page
+		Then I should see "Tu n'as pas les droits canaillou"
  
-	Scenario: Listing available pages when logged in
-	  Given a user exists
-	  And I am logged in
-	  And I am on octofacebook
-	  Then I should see "Editer"
+	Scenario: Editing my page when logged in
+		Given a user exists and I am logged in as this user
+		And I am on octofacebook
+		Then I should see "Editer ma page"
+	
     
