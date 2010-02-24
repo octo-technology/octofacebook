@@ -35,3 +35,4 @@ config.gem 'cucumber-rails', :lib => false
 config.gem "mocha", :version => ">=0.9.8"
 config.gem "fakeweb"
 config.gem 'factory_girl'
+config.gem 'database_cleaner'
