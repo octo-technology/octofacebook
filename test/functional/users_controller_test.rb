@@ -34,7 +34,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should show user with twitts" do
-    u = Factory(:user, :username => "bob")
+    u = Factory(:user, :username => "bob", :twitter_identifier => "bob")
     
     #On crée un mock de TwitterProxy qui renvoie ce twitt
     twitt = OpenStruct.new :text => "Hello this is my twitt"
@@ -59,7 +59,7 @@ class UsersControllerTest < ActionController::TestCase
     
     get :show, :username => "bob"
     assert_response :success
-    assert assigns(:blog_posts)[0] == {:title => "Wouhou", :link => "http://blog.octo.com/wouhou", :content => "ipsum loret"}
+    assert assigns(:blog_posts).include?({:title => "Wouhou", :link => "http://blog.octo.com/wouhou", :content => "ipsum loret"})
   end
 
   test "should get edit page" do
