@@ -11,6 +11,6 @@ Feature: Add a twitter component to my public page
 		When I go to edit my page
 		And I fill in "Compte Twitter" with "cblavier"
 		And I press "Valider"
-		Then I should see "Bienvenue sur la page publique de Christian"
+		Then I should see "Christian Blavier"
 		And I should see "Here is my twitt"
 		
