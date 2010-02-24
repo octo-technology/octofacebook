@@ -1,7 +1,7 @@
 <h1>Liste des profils</h1>
 <% @users.each do |user| %>
   <h2>
-    <%= link_to "#{user.firstname} #{user.lastname}", public_page_path(user.username) %>
-    <% if current_user %> <% end %>
+	<div><%= link_to image_tag( "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.username + "@octo.com")}"), public_page_path(user.username) %></div>
+    <div><%= link_to "#{user.firstname} #{user.lastname}", public_page_path(user.username) %></div>
   </h2>
 <% end %>
