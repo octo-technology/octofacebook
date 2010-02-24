@@ -1,4 +1,5 @@
 require 'TwitterProxy'
+require 'rss'
 
 class UsersController < ApplicationController
   layout "main"
@@ -12,10 +13,21 @@ class UsersController < ApplicationController
   def show
     begin
       @user = User.find_by_username!(params[:username])
+      
+      #Récupération des twitts
       unless @user.twitter_identifier.blank?
         @twitts = TwitterProxy.new.get_last_twitts_for_user @user.twitter_identifier
       else  
         @twitts = []
+      end
+      
+      #Récupération des 3 derniers posts (tronqués à 500 caractère)
+      unless @user.blog_feed_url.blank?
+        @blog_posts = RSS::Parser.parse(open(@user.blog_feed_url).read, false).items.first(3).collect { |post| 
+           {:title => post.title, :link => post.link, :content => post.description.first(500)}
+        }
+      else
+        @blog_posts = []
       end
     rescue ActiveRecord::RecordNotFound 
       flash[:warning] = "Pas de page pour l'utilisateur #{params[:username]}"

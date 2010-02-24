@@ -44,6 +44,12 @@
 							<span class="description">L'identifiant que tu utilises sur Twitter</span>
 						</div>
 						
+						<div class="group">
+							<%= f.label :blog_feed_url, "Feed RSS Octo Talks:" %>
+							<%= f.text_field :blog_feed_url, :class => "text_field" %>
+							<span class="description">Ton feed RSS sur OctoTalks. De la forme http://blog.octo.com/author/fhi/feed</span>
+						</div>
+						
 						<div class="group navform">
 							<%= f.submit "Valider", :class => "button" %>
 							ou

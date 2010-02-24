@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
     c.session_class = UserSession
     c.openid_required_fields = [:fullname]
   end
+  
+  validates_url_format_of :blog_feed_url, :allow_nil => true, :allow_blank => true
 
   private
 

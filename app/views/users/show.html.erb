@@ -35,11 +35,37 @@
 				  <b>Compte Twitter: </b>
 				  <span id="twitter_identifier"><%=h @user.twitter_identifier %></span>
 				</p>
+				
+				<p>
+				  <b>Feed RSS Octo Talks: </b>
+				  <span id="blog_feed_url"><%=h @user.blog_feed_url %></span>
+				</p>
 
 			<%= link_to 'Editer', edit_page_path %> | <%= link_to 'Accueil', root_path %>
 			</div>
 		</div>
 	</div>	
+	
+	<div class="block">
+		<div class="secondary-navigation">
+			<ul>
+				<li class="active-first">
+					<a href="#"><%= @user.firstname %> dit sur Octo Talks</a>
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="content">
+			<div class="inner">
+		        <% for post in @blog_posts %>
+				 	<p>
+					  <b><%= link_to post[:title], post[:link]%></b>
+					  <div><%= post[:content]%>...</div>
+					</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
 	
 <div id="sidebar">
@@ -47,10 +73,11 @@
       <h3><%= @user.firstname %> dit sur Twitter </h3>
       <div class="content" id="twitts">
         <% for twitt in @twitts %>
-				   <p><%= twitt.text %></p>
-				<% end %>
-				<%= link_to 'Suivez moi sur Twitter', twitter_identifier_url(@user.twitter_identifier), :target => "_blank" %>
-      </div>
-			
+		 	<p><%= twitt.text %></p>
+		<% end %>
+		<%= link_to 'Suivez moi sur Twitter', twitter_identifier_url(@user.twitter_identifier), :target => "_blank" %>
+      </div>			
 	</div>
+	
+
 </div>

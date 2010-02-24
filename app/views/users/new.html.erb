@@ -16,13 +16,19 @@
 						<div class="group">
 							<%= f.label :openid_identifier, "OpenID" %>
 							<%= f.text_field :openid_identifier, :class => "text_field" %>
-							<span class="description">Ton open id. De la forme https://openid.octo.com/users/cbl<span>
+							<span class="description">Ton open id. De la forme https://openid.octo.com/users/fhi<span>
 						</div>
 						
 						<div class="group">
 							<%= f.label :twitter_identifier, "Compte Twitter" %>
 							<%= f.text_field :twitter_identifier, :class => "text_field" %>
 							<span class="description">L'identifiant que tu utilises sur Twitter</span>
+						</div>
+						
+						<div class="group">
+							<%= f.label :blog_feed_url, "Feed RSS Octo Talks" %>
+							<%= f.text_field :blog_feed_url, :class => "text_field" %>
+							<span class="description">Ton feed RSS sur OctoTalks. De la forme http://blog.octo.com/author/fhi/feed</span>
 						</div>
 						
 						<div class="group navform">

@@ -46,6 +46,22 @@ class UsersControllerTest < ActionController::TestCase
     assert assigns(:twitts).include?(twitt)
   end
 
+  test "should show user with one blog post" do
+  u = Factory(:user, :username => "bob", :blog_feed_url => "http://blog.octo.com/author/bob/feed")
+  FakeWeb.register_uri(:get, "http://blog.octo.com/author/bob/feed", 
+    :body => "<rss><channel> 
+    	<item> 
+    		<title>Wouhou</title> 
+    		<link>http://blog.octo.com/wouhou</link> 
+    		<description>ipsum loret</description>
+    	</item>
+    </channel></rss>")
+    
+    get :show, :username => "bob"
+    assert_response :success
+    assert assigns(:blog_posts)[0] == {:title => "Wouhou", :link => "http://blog.octo.com/wouhou", :content => "ipsum loret"}
+  end
+
   test "should get edit page" do
     u = Factory(:user, :username => "bob")
     get :edit, :username => "bob"

@@ -13,7 +13,7 @@ Feature: Create my public page
 		Then I should be on fhisquin's public page 
 		And I should see "Bienvenue sur la page publique de Francois"
 		And I should see "Hisquin"
-		
+
 	Scenario: Create my page with an existing account
 		Given my name is Christian Blavier  
 		And I am on octofacebook
@@ -22,13 +22,13 @@ Feature: Create my public page
 		And I fill in "OpenID" with "https://openid.octo.com/users/cbl"
 		And I press "Valider"
 		Then I should see "errors prohibited this user from being saved"
-  
-  Scenario: Listing available pages when not logged in
-    Given I am on octofacebook
-    Then I should not see "Editer"
-    
-  Scenario: Listing available pages when logged in
-    Given I am logged in
-    And I am on octofacebook
-    Then I should see "Editer"
-    
+
+	Scenario: Listing available pages when not logged in
+		Given I am on octofacebook
+		Then I should not see "Editer"
+
+	Scenario: Listing available pages when logged in
+		Given I am logged in
+		And I am on octofacebook
+		Then I should see "Editer"
+   

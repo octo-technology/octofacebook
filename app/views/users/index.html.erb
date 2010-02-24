@@ -13,7 +13,7 @@
 	         <tr>
 	           <th class="first">&nbsp;</th>
 	           <th>OpenID</th>
-						 <th>ID</th>
+			   <th>ID</th>
 	           <th>Prénom</th>
 	           <th>Nom</th>
 	           <th>Compte Twitter</th>
@@ -27,7 +27,6 @@
 					    <td><%=h user.username %></td>
 					    <td><%=h user.firstname %></td>
 					    <td><%=h user.lastname %></td>
-					    <td><%=h user.twitter_identifier %></td>
 					    <td><%= link_to 'Consulter', public_page_path(user.username) %>
 					    <% if current_user %>
 					     | <%= link_to 'Editer', edit_page_path(user.username) %></td>
