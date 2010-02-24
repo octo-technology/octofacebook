@@ -7,10 +7,16 @@ Feature: Add a blog component to my public page
 		Given my name is Christian Blavier 
 		And I am on octofacebook
 		And my public page, cblavier, already exist
-		And I have blogged "Here is my post" on a blog whose feed url is "http://blog.octo.com/author/cbl/feed"
+		Given I have posted this on blog whose feed url is "http://blog.octo.com/author/cbl/feed"
+		  | title		  | content         | link								|
+		  | Hello World ! | Here is my post | http://blog.octo.com/hello-world  |
+		  | Another post  | blah blah       | http://blog.octo.com/another-post |
+		  | Finally 	  | bleh bleh bleh  | http://blog.octo.com/finally		|
 		When I go to edit my page
 		And I fill in "Feed RSS Octo Talks" with "http://blog.octo.com/author/cbl/feed"
 		And I press "Valider"
 		Then I should see "Christian Blavier"
-		And I should see "Here is my post"
+		And I should see a link to "http://blog.octo.com/hello-world" with text "Hello World !"
+		And I should see a link to "http://blog.octo.com/another-post" with text "Another post"
+		And I should see a link to "http://blog.octo.com/finally" with text "Finally"
 		
