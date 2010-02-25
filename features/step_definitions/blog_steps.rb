@@ -9,6 +9,10 @@ Given /^I have blogged "([^\"]*)" on a blog whose feed url is "([^\"]*)"$/ do |p
     </channel></rss>")
 end
 
+Given /^page "([^\"]*)" does not exist$/ do |feed_url|
+  FakeWeb.register_uri(:get, feed_url, body => "Nothing to be found 'round here", :status => ["404", "Not Found"])
+end
+
 Given /^I have posted this on blog whose feed url is "([^\"]*)"$/ do |feed_url, posts_table|
   xml = Builder::XmlMarkup.new
   xml.rss {

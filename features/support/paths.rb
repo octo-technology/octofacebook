@@ -14,7 +14,10 @@ module NavigationHelpers
       root_path
       
     when /edit my page/
-       edit_page_path(@username)
+      edit_page_path @username
+       
+    when /my public page/
+      public_page_path @username
        
     when /^(.*)'s public page$/i
       public_page_path $1

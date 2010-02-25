@@ -13,7 +13,18 @@ Feature: Add a blog component to my public page
 		When I go to edit my page
 		And I fill in "Feed RSS Octo Talks" with "http://blog.octo.com/author/cbl/feed"
 		And I press "Valider"
-		Then I should see a link to "http://blog.octo.com/hello-world" with text "Hello World !"
+		Then I should be on my public page
+		And I should see a link to "http://blog.octo.com/hello-world" with text "Hello World !"
 		And I should see a link to "http://blog.octo.com/another-post" with text "Another post"
 		And I should see a link to "http://blog.octo.com/finally" with text "Finally"
+		
+		
+	Scenario: Set a wrong blog feed url and handle 404
+		Given a user exists and I am logged in as this user
+		And page "http://blog.octo.com/author/wrong/feed" does not exist
+		When I go to edit my page
+		And I fill in "Feed RSS Octo Talks" with "http://blog.octo.com/author/wrong/feed"
+		And I press "Valider"
+		Then I should be on my public page
+		And I should see "Impossible de rÃ©cupÃ©rer le feed RSS"
 		

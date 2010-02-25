@@ -21,12 +21,15 @@ class UsersController < ApplicationController
       end
       
       #Récupération des 3 derniers posts (tronqués à 500 caractère)
+      @blog_posts = []
       unless @user.blog_feed_url.blank?
+        begin
         @blog_posts = RSS::Parser.parse(open(@user.blog_feed_url).read, false).items.first(3).collect { |post| 
            {:title => post.title, :link => post.link, :content => post.description.first(500)}
         }
-      else
-        @blog_posts = []
+        rescue
+          flash[:warning] = 'Impossible de récupérer le feed RSS'       
+        end
       end
     rescue ActiveRecord::RecordNotFound 
       flash[:warning] = "Pas de page pour l'utilisateur #{params[:username]}"
