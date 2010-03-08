@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100223233710) do
+ActiveRecord::Schema.define(:version => 20100308162403) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(:version => 20100223233710) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "openid_identifier",  :null => false
-    t.string   "username",           :null => false
-    t.string   "lastname",           :null => false
-    t.string   "firstname",          :null => false
+    t.string   "openid_identifier",    :null => false
+    t.string   "username",             :null => false
+    t.string   "lastname",             :null => false
+    t.string   "firstname",            :null => false
     t.string   "twitter_identifier"
     t.string   "persistence_token"
     t.string   "crypted_password"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20100223233710) do
     t.datetime "updated_at"
     t.string   "blog_feed_url"
     t.text     "bio"
+    t.string   "linkedin_profile_url"
   end
 
   add_index "users", ["openid_identifier"], :name => "index_users_on_openid_identifier", :unique => true

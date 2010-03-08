@@ -20,6 +20,7 @@
 	</p>
 	<% end %>
 </div>
+<h3><%= link_to "Mon profil Linked In", @user.linkedin_profile_url, :class => "linkedin-profileinsider-popup" %></h3>
 <% content_for :sidebar do %>
   <%= gravatar(@user) %>
 <% end %>
