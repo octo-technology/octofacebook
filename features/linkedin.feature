@@ -16,3 +16,9 @@ Feature: Add a link to my Linked In profile to my public page
 #	  When I go to my public page
 #	    And I follow "Mon profil Linked In"
 #	  Then I should see ...
+
+
+  Scenario: Should not see my Linked In profile if its url is not set
+    Given a user exists and I am logged in as this user
+    When I go to my public page
+    Then I should not see "Mon profil Linked In"
