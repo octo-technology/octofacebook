@@ -10,6 +10,7 @@ require 'ostruct'
 
 Rails::Initializer.run do |config|
    
+#  config.gem 'httparty', :version => '0.5.2'
   config.gem 'twitter'
   config.gem "ruby-openid", :lib => "openid"
   config.gem "authlogic"

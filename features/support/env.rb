@@ -1,3 +1,6 @@
+require 'tasty_cucumber'
+TastyCucumber.configure { use_token 'a17b87ce1afbeefb566f2d822ef90192e3a65dc3' }
+
 # Sets up the Rails environment for Cucumber
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')

@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20100308162403) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "blog_feed_url"
     t.text     "bio"
+    t.string   "blog_feed_url"
     t.string   "linkedin_profile_url"
   end
 
